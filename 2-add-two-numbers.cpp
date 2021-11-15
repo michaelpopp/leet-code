@@ -12,11 +12,9 @@
 struct ListNode {
 	int val;
 	ListNode *next;
-
 	ListNode() { val = 0; next = nullptr; }
 	ListNode(int x) { val = x; next = nullptr;}
 	ListNode(int x, ListNode *next__) { val = x; next = next__; }
-
 };
 
 ListNode* addTwoNumbers (ListNode* l1, ListNode* l2) {
@@ -37,27 +35,30 @@ ListNode* addTwoNumbers (ListNode* l1, ListNode* l2) {
 		if (p != nullptr) { p = p->next; }
 		if (q != nullptr) { q = q->next; }
 	}
-
+	//  if carry exist for most significant digit add one more mode
 	if (carry > 0) { curr->next = new ListNode(carry); }
 
-	return dummyHead->next;
+	//  preparing results & freeing dynamically allocated memory
+	curr = dummyHead->next;
+	delete dummyHead;
+
+	return curr;
 }
 
 int main(int argc, char* argv[]) {
-	
+	//  linked-list 1
 	ListNode l1 {3};
 	ListNode l2 {4, &l1};
 	ListNode l3 {2, &l2};
-
+	
+	//  linked-list 2
 	ListNode l4 {4};
 	ListNode l5 {6, &l4};
 	ListNode l6 {5, &l5};
 	ListNode* l7 = addTwoNumbers(&l3, &l6);
 	
-	while (l7 != nullptr) {
-		std::cout << l7->val << std::endl;
-		l7 = l7->next;
-	}
+	//  printing result to console for verification
+	while (l7 != nullptr) {	std::cout << l7->val << std::endl; l7 = l7->next;}
 
 	return 0;
 
