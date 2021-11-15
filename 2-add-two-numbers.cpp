@@ -2,7 +2,7 @@
  * Leetcode problem: 9. Add Two Numbers
  * Difficulty: medium
  * Contributor: michael popp
- * Currently in progress not finished yet
+ * Note: This is a c++ solution of the default solutioin
  */ 
 
 #include <iostream>
@@ -19,50 +19,28 @@ struct ListNode {
 
 };
 
-int linkListToInt (ListNode* x){
-	
-	std::string result;
-	ListNode* curr = x;
+ListNode* addTwoNumbers (ListNode* l1, ListNode* l2) {
 
-	do {
-		result.insert(0, std::to_string(curr->val));
+	ListNode* dummyHead = new ListNode;
+	ListNode* p = l1;
+	ListNode* q = l2;
+	ListNode* curr = dummyHead;
+
+	int carry = 0;
+	while (p != nullptr || q != nullptr) {
+		auto x = (p != nullptr) ? p-> val : 0;
+		auto y = (q != nullptr) ? q-> val : 0;
+		int sum = carry + x + y;
+		carry = sum / 10;
+		curr->next = new ListNode {sum % 10};
 		curr = curr->next;
-	} 
-	while (curr != nullptr);
-	return std::stoi(result);
-}
-
-ListNode* intToLinkList (int x){
-	
-	std::string str_x = std::to_string(x);
-	auto index = str_x.length() - 1;
-	auto initNode = true;
-	
-	for (index; index >= 0; index--){
-
-		int val = str_x[index] - '0';
-
-		if(initNode){
-			ListNode ln_x {str_x[index] - '0'};
-			initNode = false;
-			continue;
-		}
-
-		//  https://stackoverflow.com/questions/5029840/convert-char-to-int-in-c-and-c
-		ListNode ln_x { (str_x[index] - '0'), &ln_x};
-
-		if (index == 0){return &ln_x;}
+		if (p != nullptr) { p = p->next; }
+		if (q != nullptr) { q = q->next; }
 	}
 
-	return nullptr;
+	if (carry > 0) { curr->next = new ListNode(carry); }
 
-}
-
-ListNode* addTwoNumbers (ListNode* l1, ListNode* l2) {
-	
-	auto i_l1 = linkListToInt (l1);
-	auto i_l2 = linkListToInt (l2);
-	return intToLinkList(i_l1 + i_l2);
+	return dummyHead->next;
 }
 
 int main(int argc, char* argv[]) {
@@ -76,13 +54,10 @@ int main(int argc, char* argv[]) {
 	ListNode l6 {5, &l5};
 	ListNode* l7 = addTwoNumbers(&l3, &l6);
 	
-	ListNode* curr = l7;
-	
-	do {
-		std::cout << curr->val << std::endl;
-		curr = curr->next;
-	} 
-	while (curr != nullptr);
+	while (l7 != nullptr) {
+		std::cout << l7->val << std::endl;
+		l7 = l7->next;
+	}
 
 	return 0;
 
