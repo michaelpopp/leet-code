@@ -35,7 +35,7 @@ ListNode* addTwoNumbers (ListNode* l1, ListNode* l2) {
 		if (p != nullptr) { p = p->next; }
 		if (q != nullptr) { q = q->next; }
 	}
-	//  if carry exist for most significant digit add one more mode
+	//  if carry exist for most significant digit add one more node
 	if (carry > 0) { curr->next = new ListNode(carry); }
 
 	//  preparing results & freeing dynamically allocated memory
