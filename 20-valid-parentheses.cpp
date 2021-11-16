@@ -10,11 +10,10 @@
 
 bool isValid (std::string s) {
 
-	//  Validating parentheses
 	std::stack<char> ss;
-	
+
+	//  Validating parentheses
 	for (int i = 0; i < s.length(); i++){
-		char debug = s.at(i);
 
 		if (s.at(i) == '{' || s.at(i) == '[' || s.at(i) == '('){
 			ss.push(s.at(i));
@@ -40,10 +39,14 @@ bool isValid (std::string s) {
 int main (int argc, char* argv[]){
 	//  true test case
 	std::string testCase1 = "[{}]";
+	//  false test case
 	std::string testCase2 = "{{{[][]}}";
+	//  false test case
 	std::string testCase3 = "]";
-	bool test = isValid(testCase3);
 
+	bool test = isValid(testCase1);
+	
+	//  verifying the test cast on the terminal
 	std::cout << test << std::endl;
 
 	return 0;
