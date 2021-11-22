@@ -26,7 +26,7 @@ int lengthOfLongestSubstring(std::string s) {
 		std::pair<char, std::string> charValue (lookup, "stored");
 		charMap.insert(charValue);
                 length++;
-	    };
+	    }
 	}
 
 	if(length > result){result = length;}
