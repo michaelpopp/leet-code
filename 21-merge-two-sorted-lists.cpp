@@ -1,3 +1,8 @@
+/*
+ * Problem: 21
+ * Difficulty: easy
+ * contributor: michael popp
+ */
 #include <iostream>
 
 struct ListNode {
@@ -15,24 +20,23 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2){
     ListNode* p = list1;
     ListNode* q = list2;
     
-    // Testing for atleast 1 empty linked list
+    // testing for atleast 1 empty linked list
     if (list1 == nullptr || list2 == nullptr){
         (list1 == nullptr) ? head = list2 : head = list1;
         return head;
     }
-    // Determines Head of list
+    // determine head of list
     (p->val > q->val) ? head = q : head = p;
     (p->val > q->val) ?  q = q->next : p = p->next;
     curr = head;
 
     while(p != nullptr || q != nullptr){
         
-        // end cases first
+        // If one link-list is completely merged into the sorted list.
         if (p == nullptr || q == nullptr){
             (p == nullptr) ? curr->next = q : curr->next = p;
             return head;
         }
-        
         
         // determing next node
         (p->val > q->val) ? curr->next = q : curr->next = p;
@@ -44,11 +48,12 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2){
 }
 
 int main(int argc, char* argv[]){
+    // linke-list 1
     ListNode l1 {4};
 	ListNode l2 {2, &l1};
 	ListNode l3 {1, &l2};
 	
-	//  linked-list 2
+	// linked-list 2
 	ListNode l4 {4};
 	ListNode l5 {3, &l4};
 	ListNode l6 {1, &l5};
