@@ -1,7 +1,13 @@
+/*
+ * problem: 15
+ * difficulty: medium
+ * contributor: michael popp
+ */
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
+// time complexity, space complexity: O(n), O(1)
 std::vector<std::vector<int>> threeSum(std::vector<int>& nums){
 
     const int SIZE = nums.size();
