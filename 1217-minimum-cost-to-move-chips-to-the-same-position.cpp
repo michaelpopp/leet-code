@@ -3,6 +3,7 @@
  * Difficulty: easy
  * contributor: michael popp
  */
+
 #include <iostream>
 #include <vector>
 
