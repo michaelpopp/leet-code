@@ -54,10 +54,10 @@ int main(){
 	ListNode l1 {5};
 	ListNode l2 {4, &l1};
 	ListNode l3 {3, &l2};
-	ListNode l4 {2};
+	ListNode l4 {2, &l3};
 	ListNode l5 {1, &l4};
 	
-    ListNode* l7 = removeNthFromEnd(&l5, 1);
+    ListNode* l7 = removeNthFromEnd(&l5, 2);
 	
 	//  printing result to console for verification
 	while (l7 != nullptr) {	std::cout << l7->val << std::endl; l7 = l7->next;}
