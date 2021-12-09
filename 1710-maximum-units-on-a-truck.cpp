@@ -1,3 +1,8 @@
+/*
+ * Problem: 1710 
+ * Difficulty: easy
+ * Contributor: michael popp
+ */
 #include <iostream>
 #include <vector>
 #include <map>

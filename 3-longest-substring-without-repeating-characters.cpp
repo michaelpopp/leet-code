@@ -1,5 +1,5 @@
 /*
- * Problem: 14
+ * Problem: 3
  * Difficulty: medium
  * contributor: michael popp
  */
