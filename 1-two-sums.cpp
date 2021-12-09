@@ -7,6 +7,7 @@
 #include <vector>
 #include <unordered_map>
 
+// time complexity, memory complexity: O(n), O(n)
 std::vector<int> twoSumHash(std::vector<int>& nums, int target){
 
     const int size = nums.size();
@@ -26,6 +27,8 @@ std::vector<int> twoSumHash(std::vector<int>& nums, int target){
     }
     return result;
 }
+
+// time complexity, memory complexity: O(n^2), O(1)
 std::vector<int> twoSum(std::vector<int>& nums, int target){
 
     const int size = nums.size();
