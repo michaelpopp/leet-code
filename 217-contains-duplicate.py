@@ -11,6 +11,7 @@ def containsDuplicate(nums: list[int]) -> bool:
 
 nums = [1,2,3,1]
 
+000
 result = containsDuplicate(nums)
 
 print(result)

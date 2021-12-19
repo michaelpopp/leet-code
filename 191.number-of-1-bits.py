@@ -4,3 +4,4 @@ def hammingWeight(self, n:int) -> int:
         count += n % 2
         n = n >> 1
     return count
+
